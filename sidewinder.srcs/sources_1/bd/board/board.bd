@@ -816,7 +816,7 @@
                 "value": "GTY"
               },
               "C_LINE_RATE": {
-                "value": "10.3125"
+                "value": "25.78125"
               },
               "C_REFCLK_FREQUENCY": {
                 "value": "322.265625"
@@ -1050,7 +1050,7 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "161132813",
+                "value": "402832031",
                 "value_src": "user_prop"
               },
               "PHASE": {
@@ -1098,7 +1098,7 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "161132813",
+                "value": "402832031",
                 "value_src": "user_prop"
               },
               "PHASE": {
@@ -1150,7 +1150,7 @@
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "161132813",
+                "value": "402832031",
                 "value_src": "user_prop"
               },
               "PHASE": {

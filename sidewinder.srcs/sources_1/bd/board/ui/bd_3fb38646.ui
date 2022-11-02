@@ -45,11 +45,11 @@ preplace netloc ext_reset_in_0_1 1 0 2 NJ 400 NJ
 preplace netloc qsfp_c2c_axi_c2c_link_status_out_0 1 4 1 NJ 830
 preplace netloc qsfp_c2c_reset_out 1 2 2 NJ 740 990J
 preplace netloc qsfp_c2c_sys_reset_out 1 4 1 NJ 810
+preplace netloc qsfp_data_Res 1 3 1 1050J 100n
 preplace netloc qsfp_data_user_clk_out 1 2 2 690 300 1030J
 preplace netloc system_clock_IBUF_OUT 1 1 3 280 800 670 840 970
 preplace netloc system_reset_peripheral_aresetn 1 2 2 650 760 1050
 preplace netloc system_reset_peripheral_reset 1 2 2 690J 320 970J
-preplace netloc qsfp_data_Res 1 3 1 1050J 100n
 preplace netloc CLK_IN_D_0_1 1 0 1 NJ 340
 preplace netloc GT_DIFF_REFCLK1_0_1 1 0 4 NJ 280 NJ 280 NJ 280 NJ
 preplace netloc GT_SERIAL_RX_0_1 1 4 1 NJ 100
@@ -60,10 +60,10 @@ preplace netloc qsfp0_rx_1 1 4 1 NJ 750
 preplace netloc qsfp_c2c_m_axi 1 3 1 N 680
 preplace netloc qsfp_c2c_m_axi_lite 1 3 1 N 660
 preplace netloc qsfp_c2c_qsfp0_tx 1 4 1 NJ 770
-preplace netloc request_generator_AXIS_TX 1 3 1 N 200
-preplace netloc system_interconnect_M00_AXI 1 3 1 N 520
 preplace netloc qsfp_data_AXI_STREAM_RX 1 3 1 NJ 80
 preplace netloc rcvd_data_fifo_M_AXIS 1 2 1 650J 60n
+preplace netloc request_generator_AXIS_TX 1 3 1 N 200
+preplace netloc system_interconnect_M00_AXI 1 3 1 N 520
 levelinfo -pg 1 0 150 470 840 1220 1410
 pagesize -pg 1 -db -bbox -sgen -140 0 1580 1070
 ",

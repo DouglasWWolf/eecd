@@ -25,10 +25,10 @@ preplace netloc aurora_core_channel_up1 1 2 1 NJ 200
 preplace netloc aurora_core_sys_reset_out 1 2 1 700 80n
 preplace netloc aurora_core_user_clk_out 1 2 1 N 280
 preplace netloc reset_in_1 1 0 1 NJ 280
+preplace netloc reset_inverter_Res 1 2 1 N 60
 preplace netloc reset_manager_0_pma_init_out 1 1 1 280 280n
 preplace netloc reset_manager_0_reset_pb_out 1 1 1 300 260n
 preplace netloc system_clock_IBUF_OUT 1 0 2 20 420 NJ
-preplace netloc reset_inverter_Res 1 2 1 N 60
 preplace netloc GT_DIFF_REFCLK1_0_1 1 0 2 NJ 340 NJ
 preplace netloc GT_SERIAL_RX_0_1 1 2 1 NJ 220
 preplace netloc aurora_core_GT_SERIAL_TX 1 2 1 NJ 240
