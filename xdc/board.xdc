@@ -11,7 +11,7 @@
 set_property -dict {PACKAGE_PIN  C4  IOSTANDARD LVDS_25} [ get_ports clk_100mhz_clk_p ]
 set_property -dict {PACKAGE_PIN  C3  IOSTANDARD LVDS_25} [ get_ports clk_100mhz_clk_n ]
 create_clock -period 10.000 -name sysclk100   [get_ports clk_100mhz_clk_p]
-
+set_clock_groups -name group_sysclk100 -asynchronous -group [get_clocks sysclk100]
 
 #
 # Clock inputs for QSFP 0
@@ -20,6 +20,7 @@ set_property PACKAGE_PIN R33 [get_ports qsfp0_clk_clk_n]
 set_property PACKAGE_PIN R32 [get_ports qsfp0_clk_clk_p]
 
 create_clock -period 3.103 -name clock_qsfp0 [get_ports qsfp0_clk_clk_p]
+set_clock_groups -name group_clock_qsfp0 -asynchronous -group [get_clocks clock_qsfp0]
 
 #
 # Clock inputs for QSFP 1
@@ -28,6 +29,7 @@ set_property PACKAGE_PIN L33 [get_ports qsfp1_clk_clk_n]
 set_property PACKAGE_PIN L32 [get_ports qsfp1_clk_clk_p]
 
 create_clock -period 3.103 -name clock_qsfp1 [get_ports qsfp1_clk_clk_p]
+set_clock_groups -name group_clock_qsfp1 -asynchronous -group [get_clocks clock_qsfp1]
 
 #
 # QSFP0 transciever connections
