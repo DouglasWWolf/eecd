@@ -32,10 +32,10 @@
       "ila_100mhz": "",
       "consumer": {
         "axis_consumer": "",
-        "row_complete_cdc": "",
-        "ila_402mhz": ""
+        "row_complete_cdc": ""
       },
-      "request_generator": ""
+      "request_generator": "",
+      "ila_402mhz": ""
     },
     "interface_ports": {
       "clk_100mhz": {
@@ -480,7 +480,7 @@
             "inst_hier_path": "qsfp_c2c/c2c_signals",
             "parameters": {
               "C_MON_TYPE": {
-                "value": "NATIVE"
+                "value": "MIX"
               },
               "C_NUM_MONITOR_SLOTS": {
                 "value": "1"
@@ -506,14 +506,51 @@
               "C_SLOT_0_APC_EN": {
                 "value": "0"
               },
+              "C_SLOT_0_AXI_AR_SEL_DATA": {
+                "value": "1"
+              },
+              "C_SLOT_0_AXI_AR_SEL_TRIG": {
+                "value": "1"
+              },
+              "C_SLOT_0_AXI_AW_SEL_DATA": {
+                "value": "1"
+              },
+              "C_SLOT_0_AXI_AW_SEL_TRIG": {
+                "value": "1"
+              },
+              "C_SLOT_0_AXI_B_SEL_DATA": {
+                "value": "1"
+              },
+              "C_SLOT_0_AXI_B_SEL_TRIG": {
+                "value": "1"
+              },
               "C_SLOT_0_AXI_DATA_SEL": {
+                "value": "1"
+              },
+              "C_SLOT_0_AXI_R_SEL_DATA": {
+                "value": "1"
+              },
+              "C_SLOT_0_AXI_R_SEL_TRIG": {
                 "value": "1"
               },
               "C_SLOT_0_AXI_TRIG_SEL": {
                 "value": "1"
               },
+              "C_SLOT_0_AXI_W_SEL_DATA": {
+                "value": "1"
+              },
+              "C_SLOT_0_AXI_W_SEL_TRIG": {
+                "value": "1"
+              },
               "C_SLOT_0_INTF_TYPE": {
-                "value": "xilinx.com:interface:axis_rtl:1.0"
+                "value": "xilinx.com:interface:aximm_rtl:1.0"
+              }
+            },
+            "interface_ports": {
+              "SLOT_0_AXI": {
+                "mode": "Monitor",
+                "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+                "vlnv": "xilinx.com:interface:aximm_rtl:1.0"
               }
             }
           },
@@ -619,8 +656,14 @@
           "Conn1": {
             "interface_ports": [
               "m_axi_lite",
-              "axi_chip2chip/m_axi_lite"
-            ]
+              "axi_chip2chip/m_axi_lite",
+              "c2c_signals/SLOT_0_AXI"
+            ],
+            "hdl_attributes": {
+              "DEBUG": {
+                "value": "true"
+              }
+            }
           },
           "Conn2": {
             "interface_ports": [
@@ -767,7 +810,8 @@
           "m_aresetn_1": {
             "ports": [
               "m_aresetn",
-              "axi_chip2chip/m_aresetn"
+              "axi_chip2chip/m_aresetn",
+              "c2c_signals/resetn"
             ]
           }
         }
@@ -1281,53 +1325,13 @@
                 "value": "false"
               }
             }
-          },
-          "ila_402mhz": {
-            "vlnv": "xilinx.com:ip:system_ila:1.1",
-            "xci_name": "board_system_ila_0_3",
-            "xci_path": "ip/board_system_ila_0_3/board_system_ila_0_3.xci",
-            "inst_hier_path": "consumer/ila_402mhz",
-            "parameters": {
-              "C_MON_TYPE": {
-                "value": "INTERFACE"
-              },
-              "C_NUM_MONITOR_SLOTS": {
-                "value": "1"
-              },
-              "C_NUM_OF_PROBES": {
-                "value": "1"
-              },
-              "C_PROBE0_TYPE": {
-                "value": "0"
-              },
-              "C_SLOT_0_APC_EN": {
-                "value": "0"
-              },
-              "C_SLOT_0_AXI_DATA_SEL": {
-                "value": "1"
-              },
-              "C_SLOT_0_AXI_TRIG_SEL": {
-                "value": "1"
-              },
-              "C_SLOT_0_INTF_TYPE": {
-                "value": "xilinx.com:interface:axis_rtl:1.0"
-              }
-            },
-            "interface_ports": {
-              "SLOT_0_AXIS": {
-                "mode": "Monitor",
-                "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
-                "vlnv": "xilinx.com:interface:axis_rtl:1.0"
-              }
-            }
           }
         },
         "interface_nets": {
           "qsfp_data_AXI_STREAM_RX": {
             "interface_ports": [
               "AXIS",
-              "axis_consumer/AXIS",
-              "ila_402mhz/SLOT_0_AXIS"
+              "axis_consumer/AXIS"
             ],
             "hdl_attributes": {
               "DEBUG": {
@@ -1347,14 +1351,12 @@
             "ports": [
               "clk",
               "axis_consumer/clk",
-              "row_complete_cdc/src_clk",
-              "ila_402mhz/clk"
+              "row_complete_cdc/src_clk"
             ]
           },
           "resetn_1": {
             "ports": [
-              "resetn",
-              "ila_402mhz/resetn"
+              "resetn"
             ]
           },
           "row_complete": {
@@ -1701,6 +1703,39 @@
             "direction": "I"
           }
         }
+      },
+      "ila_402mhz": {
+        "vlnv": "xilinx.com:ip:system_ila:1.1",
+        "xci_name": "board_system_ila_0_4",
+        "xci_path": "ip/board_system_ila_0_4/board_system_ila_0_4.xci",
+        "inst_hier_path": "ila_402mhz",
+        "parameters": {
+          "C_MON_TYPE": {
+            "value": "INTERFACE"
+          },
+          "C_NUM_MONITOR_SLOTS": {
+            "value": "1"
+          },
+          "C_SLOT_0_APC_EN": {
+            "value": "0"
+          },
+          "C_SLOT_0_AXI_DATA_SEL": {
+            "value": "1"
+          },
+          "C_SLOT_0_AXI_TRIG_SEL": {
+            "value": "1"
+          },
+          "C_SLOT_0_INTF_TYPE": {
+            "value": "xilinx.com:interface:axis_rtl:1.0"
+          }
+        },
+        "interface_ports": {
+          "SLOT_0_AXIS": {
+            "mode": "Monitor",
+            "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+            "vlnv": "xilinx.com:interface:axis_rtl:1.0"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -1762,7 +1797,15 @@
         "interface_ports": [
           "qsfp_c2c/m_axi_lite",
           "system_interconnect/S00_AXI"
-        ]
+        ],
+        "hdl_attributes": {
+          "DEBUG": {
+            "value": "true"
+          },
+          "MARK_DEBUG": {
+            "value": "true"
+          }
+        }
       },
       "qsfp_c2c_qsfp0_tx": {
         "interface_ports": [
@@ -1773,7 +1816,8 @@
       "qsfp_data_AXI_STREAM_RX": {
         "interface_ports": [
           "qsfp_data/AXI_STREAM_RX",
-          "consumer/AXIS"
+          "consumer/AXIS",
+          "ila_402mhz/SLOT_0_AXIS"
         ],
         "hdl_attributes": {
           "DEBUG": {
@@ -1890,14 +1934,16 @@
       "qsfp_data_sys_resetn_out": {
         "ports": [
           "qsfp_data/sys_resetn_out",
-          "consumer/resetn"
+          "consumer/resetn",
+          "ila_402mhz/resetn"
         ]
       },
       "qsfp_data_user_clk_out": {
         "ports": [
           "qsfp_data/user_clk_out",
           "request_fifo/m_axis_aclk",
-          "consumer/clk"
+          "consumer/clk",
+          "ila_402mhz/clk"
         ]
       },
       "request_button_Q": {
