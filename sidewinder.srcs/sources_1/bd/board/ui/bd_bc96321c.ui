@@ -1,0 +1,27 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-372,-203",
+   "DisplayTieOff":"1",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port AXIS -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
+preplace port port-id_clk -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
+preplace port port-id_row_complete_clk -pg 1 -lvl 0 -x 0 -y 160 -defaultsOSRD
+preplace port port-id_row_complete -pg 1 -lvl 3 -x 550 -y 160 -defaultsOSRD
+preplace port port-id_resetn -pg 1 -lvl 0 -x 0 -y 260 -defaultsOSRD
+preplace inst axis_consumer -pg 1 -lvl 1 -x 180 -y 70 -defaultsOSRD
+preplace inst row_complete_cdc -pg 1 -lvl 2 -x 420 -y 160 -defaultsOSRD
+preplace inst ila_402mhz -pg 1 -lvl 1 -x 180 -y 240 -defaultsOSRD
+preplace netloc qsfp_data_user_clk_out 1 0 2 40 140 NJ
+preplace netloc row_complete 1 1 1 310 70n
+preplace netloc dest_clk_1 1 0 2 NJ 160 NJ
+preplace netloc row_complete_cdc_dest_pulse 1 2 1 N 160
+preplace netloc resetn_1 1 0 1 NJ 260
+preplace netloc qsfp_data_AXI_STREAM_RX 1 0 1 50 60n
+levelinfo -pg 1 0 180 420 550
+pagesize -pg 1 -db -bbox -sgen -180 0 700 320
+"
+}
+
